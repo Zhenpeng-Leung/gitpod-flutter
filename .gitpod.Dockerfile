@@ -18,7 +18,7 @@ RUN mkdir -p ~/.android ${ANDROID_HOME} && \
     wget -q https://dl.google.com/android/repository/${ANDROID_SDK_NAME} && \
     unzip -q ${ANDROID_SDK_NAME} && \
     rm -f ${ANDROID_SDK_NAME} && \
-    y | ${ANDROID_HOME}/tools/bin/sdkmanager --licenses
+    yes | ${ANDROID_HOME}/tools/bin/sdkmanager --licenses
 
 # Get flutter SDK
 ENV FLUTTER_HOME=/home/gitpod/sdk/flutter

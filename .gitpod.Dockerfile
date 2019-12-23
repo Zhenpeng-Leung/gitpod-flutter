@@ -7,7 +7,7 @@ RUN apt-get update && \
 
 USER gitpod
 
-# Get android SDK
+# Install android SDK
 ENV ANDROID_HOME=/home/gitpod/sdk/android
 ENV PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools
 ARG ANDROID_SDK_NAME=sdk-tools-linux-4333796.zip
@@ -18,7 +18,8 @@ RUN mkdir -p ~/.android ${ANDROID_HOME} && \
     wget -q https://dl.google.com/android/repository/${ANDROID_SDK_NAME} && \
     unzip -q ${ANDROID_SDK_NAME} && \
     rm -f ${ANDROID_SDK_NAME} && \
-    yes | sdkmanager --licenses
+    yes | sdkmanager --licenses && \
+    sdkmanager "platform-tools" "build-tools;28.0.3" "platforms;android-28"
 
 # Get flutter SDK
 ENV FLUTTER_HOME=/home/gitpod/sdk/flutter

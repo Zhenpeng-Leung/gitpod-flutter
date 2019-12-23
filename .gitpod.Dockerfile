@@ -19,6 +19,7 @@ RUN mkdir -p ~/.android ${ANDROID_HOME} && \
     unzip -q ${ANDROID_SDK_NAME} && \
     rm -f ${ANDROID_SDK_NAME} && \
     yes | sdkmanager --licenses && \
+    sdkmanager --update && \
     sdkmanager "platform-tools" "build-tools;28.0.3" "platforms;android-28"
 
 # Get flutter SDK

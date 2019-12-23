@@ -18,8 +18,8 @@ ARG ANDROID_SDK_NAME=sdk-tools-linux-4333796.zip
 
 RUN mkdir -p ${ANDROID_HOME} && \
     cd ${ANDROID_HOME} && \
-    wget https://dl.google.com/android/repository/${ANDROID_SDK_NAME} && \
-    unzip ${ANDROID_SDK_NAME} && \
+    echo wget -q https://dl.google.com/android/repository/${ANDROID_SDK_NAME} && \
+    echo unzip -q ${ANDROID_SDK_NAME} && \
     rm -f ${ANDROID_SDK_NAME}
 
 # Get flutter SDK
@@ -29,6 +29,6 @@ ENV FLUTTER_HOME=/home/gitpod/sdk/flutter \
 ARG FLUTTER_SDK_NAME=flutter_linux_v1.12.13+hotfix.5-stable.tar.xz
 
 RUN cd ~/sdk && \
-    wget https://storage.googleapis.com/flutter_infra/releases/stable/linux/${FLUTTER_SDK_NAME} &&\
+    wget -q https://storage.googleapis.com/flutter_infra/releases/stable/linux/${FLUTTER_SDK_NAME} &&\
     tar -xvf ${FLUTTER_SDK_NAME} && \
     rm -f ${FLUTTER_SDK_NAME}

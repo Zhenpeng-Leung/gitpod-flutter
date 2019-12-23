@@ -11,9 +11,8 @@ RUN apt-get update && \
 USER gitpod
 
 # Get android SDK
-ENV ANDROID_HOME=/home/gitpod/sdk/android \
-    PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools
-
+ENV ANDROID_HOME=/home/gitpod/sdk/android
+ENV PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools
 ARG ANDROID_SDK_NAME=sdk-tools-linux-4333796.zip
 
 RUN mkdir -p ${ANDROID_HOME} && \
@@ -23,9 +22,8 @@ RUN mkdir -p ${ANDROID_HOME} && \
     rm -f ${ANDROID_SDK_NAME}
 
 # Get flutter SDK
-ENV FLUTTER_HOME=/home/gitpod/sdk/flutter \
-    PATH=${PATH}:${FLUTTER_HOME}/bin
-
+ENV FLUTTER_HOME=/home/gitpod/sdk/flutter
+ENV PATH=${PATH}:${FLUTTER_HOME}/bin
 ARG FLUTTER_SDK_NAME=flutter_linux_v1.12.13+hotfix.5-stable.tar.xz
 
 RUN cd ~/sdk && \

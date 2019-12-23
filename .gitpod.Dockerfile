@@ -13,7 +13,7 @@ ENV PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}
 ARG ANDROID_SDK_NAME=sdk-tools-linux-4333796.zip
 
 RUN mkdir -p ~/.android ${ANDROID_HOME} && \
-    touch ~/.android/repositories.cfg
+    touch ~/.android/repositories.cfg && \
     cd ${ANDROID_HOME} && \
     wget -q https://dl.google.com/android/repository/${ANDROID_SDK_NAME} && \
     unzip -q ${ANDROID_SDK_NAME} && \

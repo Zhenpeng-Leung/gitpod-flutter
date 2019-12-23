@@ -20,7 +20,7 @@ RUN mkdir -p ~/.android ${ANDROID_HOME} && \
     wget -q https://dl.google.com/android/repository/${ANDROID_SDK_NAME} && \
     unzip -q ${ANDROID_SDK_NAME} && \
     rm -f ${ANDROID_SDK_NAME} && \
-    yes | sdkmanager --licenses > /dev/null && \
+    yes | sdkmanager --licenses && \
     sdkmanager --update && \
     sdkmanager "platform-tools" "build-tools;28.0.3" "platforms;android-28"
 

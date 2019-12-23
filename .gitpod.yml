@@ -1,2 +1,6 @@
 image: 
   file: .gitpod.Dockerfile
+
+tasks:
+  - before: sdk i java 8.0.232-open \
+            clear

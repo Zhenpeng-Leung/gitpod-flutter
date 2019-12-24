@@ -4,12 +4,19 @@ image:
 tasks:
   - before: >
       yes | sdk i java 8.0.232-open &&
-      exit 0
+      date
   - init: >
       flutter upgrade &&
       flutter update-packages --force-upgrade &&
       flutter run -d web-server --no-resident
+      date &&
+  - command: date
 
 ports:
   - port: 8080
     onOpen: open-preview
+
+vscode:
+  extensions:
+    - Dart-Code.dart-code@3.5.0-beta.1:Wg2nTABftVR/Dry4tqeY1w==
+    - Dart-Code.flutter@3.5.0:/kOacEWdiDRLyN/idUiM4A==

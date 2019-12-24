@@ -3,13 +3,14 @@ image:
 
 tasks:
   - before: >
-      yes | sdk i java 8.0.232-open &&
-      date
+      date &&
+      yes | sdk i java 8.0.232-open
   - init: >
+      date &&
+      flutter channel beta &&
       flutter upgrade &&
-      flutter update-packages --force-upgrade &&
-      flutter run -d web-server --no-resident &&
-      date
+      flutter config --enable-web &&
+      flutter pub get
   - command: date
 
 ports:

@@ -8,8 +8,8 @@ tasks:
   - init: >
       flutter upgrade &&
       flutter update-packages --force-upgrade &&
-      flutter run -d web-server --no-resident
-      date &&
+      flutter run -d web-server --no-resident &&
+      date
   - command: date
 
 ports:

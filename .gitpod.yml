@@ -2,11 +2,14 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - before: yes | sdk i java 8.0.232-open
+  - before: >
+      yes | sdk i java 8.0.232-open &&
+      exit 0
   - init: >
       flutter channel beta &&
       flutter upgrade &&
-      flutter config --enable-web
+      flutter config --enable-web &&
+      exit 0
 
 vscode:
   extensions:

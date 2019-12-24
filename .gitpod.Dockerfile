@@ -21,8 +21,8 @@ RUN mkdir -p ~/.android ${ANDROID_HOME} && \
     unzip -q ${ANDROID_SDK_NAME} && \
     rm -f ${ANDROID_SDK_NAME} && \
     yes | sdkmanager --licenses && \
-    sdkmanager "platform-tools" "build-tools;28.0.3" "platforms;android-28" && \
-    sdkmanager --update
+    sdkmanager --update && \
+    echo Install android sdk packages | sdkmanager "platform-tools" "build-tools;28.0.3" "platforms;android-28"
 
 # Install flutter beta SDK. The beta includes web support
 ENV FLUTTER_HOME=/home/gitpod/sdk/flutter

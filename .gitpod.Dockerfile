@@ -27,9 +27,11 @@ RUN mkdir -p ~/.android ${ANDROID_HOME} && \
 # INstall flutter SDK
 ENV FLUTTER_HOME=/home/gitpod/sdk/flutter
 ENV PATH=${PATH}:${FLUTTER_HOME}/bin
-ARG FLUTTER_SDK_NAME=flutter_linux_v1.12.13+hotfix.5-stable.tar.xz
+ARG FLUTTER_SDK_NAME=flutter_linux_v1.12.13+hotfix.6-beta.tar.xz
 
 RUN cd ~/sdk && \
-    wget -q https://storage.googleapis.com/flutter_infra/releases/stable/linux/${FLUTTER_SDK_NAME} &&\
+    wget -q https://storage.googleapis.com/flutter_infra/releases/beta/linux/${FLUTTER_SDK_NAME} &&\
     tar -xf ${FLUTTER_SDK_NAME} && \
-    rm -f ${FLUTTER_SDK_NAME}
+    rm -f ${FLUTTER_SDK_NAME} && \
+    flutter upgrade && \
+    flutter config --enable-web

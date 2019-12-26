@@ -8,7 +8,7 @@ RUN apt-get update && apt-get -y upgrade && \
 USER gitpod
 
 # Install android SDK
-ENV ANDROID_HOME=${HOME}/sdk/android
+ENV ANDROID_HOME=${HOME}/sdk/android \
     ANDROID_SDK_NAME=sdk-tools-linux-4333796.zip
 ENV PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools
 
@@ -22,7 +22,7 @@ RUN mkdir -p ${HOME}/.android ${ANDROID_HOME} && \
     sdkmanager --update
 
 # Install flutter beta SDK. The beta includes web support
-ENV FLUTTER_HOME=${HOME}/sdk/flutter
+ENV FLUTTER_HOME=${HOME}/sdk/flutter \
     FLUTTER_SDK_NAME=flutter_linux_v1.12.13+hotfix.5-stable.tar.xz
 ENV PATH=${PATH}:${FLUTTER_HOME}/bin
 

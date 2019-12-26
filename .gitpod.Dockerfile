@@ -1,8 +1,10 @@
 FROM gitpod/workspace-full
 
-RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install xz-utils openjdk-8-jdk && \
-    apt-get -y autoremove && apt-get clean && \
+USER root
+
+RUN apt-get update && apt-get -y upgrade &&\
+    apt-get -y install xz-utils openjdk-8-jdk &&\
+    apt-get -y autoremove && apt-get clean &&\
     rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/*
 
 USER gitpod
